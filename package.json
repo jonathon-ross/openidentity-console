@@ -19,6 +19,6 @@
     "typescript": "5.7.2"
   },
   "overrides": {
-    "sharp": "0.35.1"
+    "sharp": "0.35.4"
   }
 }
