@@ -17,7 +17,9 @@ export default function Home() {
         <div className="hero-actions"><a className="button primary large" href="#demo">See OpenIdentity in action</a><a className="text-link" href="#how">Explore the architecture →</a></div>
       </div>
       <div className="hero-visual">
-        <div className="visual-caption">WHO AUTHORIZED THIS AGENT?</div>
+        <div className="visual-orbit orbit-one"/><div className="visual-orbit orbit-two"/>
+        <div className="visual-glow"/>
+        <div className="visual-caption"><span className="pulse-dot"/> LIVE AUTHORITY GRAPH</div>
         <div className="hero-node human"><span>Principal</span><strong>Jonathan</strong></div>
         <div className="hero-link"><i/><b>records.read</b></div>
         <div className="hero-node agent"><span>Actor</span><strong>Research Agent</strong></div>
@@ -27,10 +29,13 @@ export default function Home() {
     </section>
 
     <section className="principles">
-      <div><span>01</span><h3>Know who authorized every agent.</h3><p>Tie autonomous actions back to the principal from which authority originated.</p></div>
-      <div><span>02</span><h3>Delegate less than you possess.</h3><p>Give agents only the capabilities they need, without mirroring a human's full authority.</p></div>
-      <div><span>03</span><h3>Revoke authority at its source.</h3><p>Invalidate delegated authority without destroying the agent's identity.</p></div>
-      <div><span>04</span><h3>Prove why access was authorized.</h3><p>Preserve verifiable authority state for audit and investigation.</p></div>
+      <div className="principle-intro"><span className="eyebrow">AUTHORITY, MADE EXPLICIT</span><h2>Trust is not a checkbox.<br/>It is a chain you can prove.</h2><p>Every autonomous action should have a clear origin, a constrained boundary, and evidence that survives the moment.</p></div>
+      <div className="principle-grid">
+       <article><span className="principle-number">01</span><div><h3>Know who authorized every agent.</h3><p>Tie autonomous actions back to the principal from which authority originated.</p></div></article>
+       <article><span className="principle-number">02</span><div><h3>Delegate less than you possess.</h3><p>Give agents only the capabilities they need, without mirroring a human's full authority.</p></div></article>
+       <article><span className="principle-number">03</span><div><h3>Revoke authority at its source.</h3><p>Invalidate delegated authority without destroying the agent's identity.</p></div></article>
+       <article><span className="principle-number">04</span><div><h3>Prove why access was authorized.</h3><p>Preserve verifiable authority state for audit and investigation.</p></div></article>
+      </div>
     </section>
 
     <section id="how" className="architecture-section">
