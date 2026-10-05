@@ -17,6 +17,27 @@ function view(event: LiveActivity): EvidenceView {
   const verifier = event.verifier ?? {};
   const transport = event.transport ?? {};
 
+  if (event.type === "delegation_reset_evidence") {
+    const semantic = event.semantic?.details ?? {};
+    const affected = Array.isArray(semantic.affectedGrants) ? semantic.affectedGrants : [];
+    return {
+      title: "Delegation authority reset",
+      sub: "Console action → verifier acceptance → Sui confirmation",
+      result: "CONFIRMED",
+      tone: "deny",
+      evidence: [
+        ["Correlation", event.correlationId ?? "—"],
+        ["Sequence", text(semantic.sequence)],
+        ["Generation", text(semantic.delegationGeneration)],
+        ["Operation", text(verifier.operationHash ?? transport.operationHash)],
+        ["Verifier", text(verifier.decision)],
+        ["Sui digest", text(transport.digest)],
+        ["Sui object", text(transport.objectId)],
+        ["Affected grants", affected.length ? affected.map(text).join(", ") : "none"],
+      ],
+    };
+  }
+
   if (event.type === "authority_transition") {
     return {
       title: "Identity authority transition",
