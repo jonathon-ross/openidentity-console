@@ -14,7 +14,7 @@ export function DemoPanel() {
 
   return <section className="demo-shell">
     <div className="demo-progress">
-      <div className={stage==="none"?"active":stage!=="none"?"complete":""}><span>01</span><b>No authority</b></div>
+      <div className={stage==="none"?"active":"complete"}><span>01</span><b>No authority</b></div>
       <i/>
       <div className={stage==="delegated"?"active":stage==="revoked"?"complete":""}><span>02</span><b>Delegate</b></div>
       <i/>
