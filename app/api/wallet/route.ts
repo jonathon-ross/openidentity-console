@@ -6,7 +6,7 @@ export async function POST(req:NextRequest){const body=await req.json();const ac
  if(action==="unlock")return forward("/v1/unlock",{password:body.password});
  if(action==="lock")return forward("/v1/lock");
  if(action==="createAgent")return forward("/v1/agents",{name:body.name});if(action==="deleteAgent")return forward("/v1/agents/"+encodeURIComponent(body.name),undefined,"DELETE");
- if(action==="delegate")return forward("/v1/authority",{agentName:body.agentName,capability:body.capability,lifetimeSeconds:body.lifetimeSeconds});
+ if(action==="delegate")return forward("/v1/authority",{agentName:body.agentName,capability:body.capability,lifetimeSeconds:body.lifetimeSeconds});if(action==="oauthReferenceTest")return forward("/v1/oauth/reference-test",{agentName:body.agentName,grantId:body.grantId});
  if(action==="resetDelegations")return forward("/v1/delegations/reset",{});
  return NextResponse.json({error:"unsupported_action"},{status:400});
 }
