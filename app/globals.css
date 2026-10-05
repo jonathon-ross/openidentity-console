@@ -66,3 +66,17 @@
 @media(max-width:900px){.hero-visual{transform:none}.hero-proof{margin-top:38px}.hero-transition{height:55px}}
 @media(max-width:560px){.hero-proof{display:none}.visual-footer{grid-template-columns:1fr}.visual-hash{display:none}.proof-chip{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.visual-orbit,.pulse-dot,.hero-link i:after,.edge-line:after{animation:none!important}.button,.hero-node,.principle-grid article,.principle-number{transition:none!important}}
+
+/* Keep transition copy on a stable high-contrast surface. */
+.hero-transition{
+  height:72px;
+  background:#0d1729;
+  align-items:center;
+  padding-bottom:0;
+  color:#9fb8e7;
+  border-top:1px solid rgba(44,86,156,.2);
+}
+.hero-transition span{position:relative;padding-left:17px}
+.hero-transition span:before{content:"";position:absolute;left:0;top:50%;width:6px;height:6px;border-radius:50%;background:#5f91ff;transform:translateY(-50%);box-shadow:0 0 14px rgba(95,145,255,.6)}
+.hero-transition i{background:linear-gradient(90deg,#4f76bb,#6edcff);opacity:.75}
+.principles{border-top:1px solid rgba(255,255,255,.06)}
