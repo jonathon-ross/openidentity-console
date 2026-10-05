@@ -42,15 +42,25 @@ export default function Home() {
 
     <section id="how" className="architecture-section">
       <div className="section-copy"><span className="eyebrow">HOW IT WORKS</span><h2>Keep the IAM you already have.</h2><p>OpenIdentity sits at the authority layer. Existing identity providers authenticate principals. Existing OAuth infrastructure continues to issue and enforce access tokens.</p><div className="callout">Your downstream APIs do not need to understand OpenIdentity.</div></div>
-      <div className="stack-diagram">
-        <div><span>Existing IAM</span><strong>Entra · Okta · OIDC</strong></div><i/>
-        <div className="accent"><span>Authority Layer</span><strong>OpenIdentity</strong></div><i/>
-        <div><span>Access Layer</span><strong>OAuth · AuthZEN</strong></div><i/>
-        <div><span>Resources</span><strong>Existing applications & APIs</strong></div>
+      <div className="architecture-map">
+        <div className="arch-rail"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
+        <div className="arch-flow">
+          <div className="arch-node"><div className="arch-icon">ID</div><div><span>Existing identity</span><strong>Entra · Okta · OIDC</strong><small>Authenticate the principal</small></div></div>
+          <div className="arch-connector"><b>principal identity</b><i/></div>
+          <div className="arch-node openidentity-node"><div className="arch-icon">OI</div><div><span>Authority layer</span><strong>OpenIdentity</strong><small>Establish who may act, for whom, and why</small></div><em>VERIFIED</em></div>
+          <div className="arch-connector"><b>constrained authority</b><i/></div>
+          <div className="arch-node"><div className="arch-icon">OA</div><div><span>Access layer</span><strong>OAuth · AuthZEN</strong><small>Translate authority into standard access</small></div></div>
+          <div className="arch-connector"><b>standard token / decision</b><i/></div>
+          <div className="arch-node"><div className="arch-icon">API</div><div><span>Resources</span><strong>Existing applications & APIs</strong><small>No OpenIdentity integration required</small></div></div>
+        </div>
       </div>
     </section>
 
-    <section id="console" className="console-section"><div className="section-heading"><span className="eyebrow">DEVELOPER PREVIEW</span><h2>See authority as a graph, not a pile of permissions.</h2><p>The Console is designed around one question: who or what is allowed to act, for whom, and why?</p></div><ConsolePreview /></section>
+    <section id="console" className="console-section">
+      <div className="console-reveal-label"><span>THE CONTROL SURFACE</span><i/></div>
+      <div className="section-heading"><span className="eyebrow">OPENIDENTITY CONSOLE · DEVELOPER PREVIEW</span><h2>See authority as a graph,<br/>not a pile of permissions.</h2><p>The Console is designed around one question: who or what is allowed to act, for whom, and why?</p></div>
+      <div className="console-frame"><div className="frame-top"><div><i/><i/><i/></div><span>console.openidentity · authority overview</span><b>SECURE SESSION</b></div><ConsolePreview /></div>
+    </section>
 
     <section id="demo" className="demo-section"><DemoPanel /></section>
 
