@@ -13,6 +13,13 @@ export function DemoPanel() {
   },[stage]);
 
   return <section className="demo-shell">
+    <div className="demo-progress">
+      <div className={stage==="none"?"active":stage!=="none"?"complete":""}><span>01</span><b>No authority</b></div>
+      <i/>
+      <div className={stage==="delegated"?"active":stage==="revoked"?"complete":""}><span>02</span><b>Delegate</b></div>
+      <i/>
+      <div className={stage==="revoked"?"active":""}><span>03</span><b>Revoke</b></div>
+    </div>
     <div className="demo-toolbar">
       <div><span className="eyebrow">LIVE CONCEPT DEMO</span><h2>Authority, not another login screen.</h2></div>
       <div className="demo-actions">
@@ -25,7 +32,7 @@ export function DemoPanel() {
       <div className="panel">
         <div className="panel-heading"><span>OpenIdentity</span><span className="status-dot">Developer Preview</span></div>
         <AuthorityGraph revoked={stage==="revoked"} />
-        <div className="authority-card">
+        <div className={"demo-decision "+stage}><span>{stage==="none"?"NO ACTIVE AUTHORITY":stage==="delegated"?"AUTHORITY VERIFIED":"AUTHORITY REVOKED"}</span><i/></div><div className="authority-card">
           <div><span>Authority</span><strong>{stage==="delegated" ? "ACTIVE" : stage==="revoked" ? "REVOKED" : "NONE"}</strong></div>
           <div><span>OAuth issuance</span><strong>{result.token}</strong></div>
         </div>
